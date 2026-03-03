@@ -16,12 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (file) {
             fileLabel.textContent = file.name;
 
-            // Free up memory from previous image preview
             if (currentPreviewUrl) {
                 URL.revokeObjectURL(currentPreviewUrl);
             }
 
-            // Create a memory-efficient preview URL (doesn't load entire file to RAM as base64)
+            //  preview URL 
             currentPreviewUrl = URL.createObjectURL(file);
             imagePreview.src = currentPreviewUrl;
 
@@ -43,19 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Update UI to show loading/compressing state
+        // Updated UI to show loading/compressing state
         loading.style.display = 'block';
         document.querySelector('.loading-text').textContent = "Compressing & analyzing image... Please wait.";
         resultsSection.style.display = 'none';
         submitBtn.disabled = true;
 
         try {
-            // We skip client-side compression entirely and upload the raw file to the backend
-            // because loading 10MB+ live camera photos into an HTML Canvas or Image element 
-            // frequently causes "Out of Memory" crashes on iOS Safari and Android Chrome.
+           
             const formData = new FormData();
             formData.append('medicineImage', file, file.name);
-            // Send the image to our local Node.js backend
             const response = await fetch('/api/scan', {
                 method: 'POST',
                 body: formData
@@ -64,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (response.ok) {
-                // Update UI with results
+                // Updated UI with results
                 document.getElementById('rawOcrText').textContent = data.extractedText || 'No text found';
                 document.getElementById('medicineName').textContent = data.medicineName || 'Could not identify name';
                 document.getElementById('medicineUsage').textContent = data.usage || 'Information not available';
