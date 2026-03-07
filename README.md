@@ -50,6 +50,7 @@ This project focuses on simplicity: the AI directly interprets the image and ret
 | HTML           | UI Structure                                |
 | CSS            | Styling                                     |
 | JavaScript     | Client-side logic                           |
+| Node.js / Express | Backend server to handle API proxying       |
 | OpenRouter API | AI model gateway                            |
 | Gemini 2.0     | Image understanding and response generation |
 
@@ -60,10 +61,20 @@ This project focuses on simplicity: the AI directly interprets the image and ret
 ```
 AI-Medicine-Search/
 │
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+├── public/                 # Frontend Assets
+│   ├── index.html          # Main application UI
+│   ├── style.css           # Styling
+│   ├── script.js           # Frontend logic
+│   ├── about.html          # About page
+│   ├── contact.html        # Contact page
+│   ├── favicon.ico
+│   ├── logo.png
+│   └── fonts/              # Custom fonts
+│
+├── uploads/                # Temporary image uploads
+├── server.js               # Node.js Express Backend
+├── package.json            # Dependencies and scripts
+└── README.md               # User Documentation
 ```
 
 ---
@@ -74,37 +85,45 @@ AI-Medicine-Search/
 
 ```bash
 git clone https://github.com/yourusername/ai-medicine-search.git
+cd ai-medicine-search
 ```
 
 ---
 
-### 2️⃣ Open the project
+### 2️⃣ Install dependencies
 
-Simply open:
-
+```bash
+npm install
 ```
-index.html
-```
-
-in your browser.
-
-No build step required.
 
 ---
 
 ### 3️⃣ Add your OpenRouter API key
 
-Inside `script.js`, replace:
+Create a `.env` file in the root directory:
 
-```javascript
-const API_KEY = "YOUR_OPENROUTER_API_KEY";
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key_here
 ```
 
-with your OpenRouter API key.
-
 You can get an API key from:
-
 https://openrouter.ai/
+
+---
+
+### 4️⃣ Start the server
+
+```bash
+npm start
+```
+
+### 5️⃣ Open the project
+
+Open your browser and navigate to:
+
+```
+http://localhost:3000
+```
 
 ---
 
