@@ -96,7 +96,7 @@ app.post('/api/scan', upload.single('medicineImage'), async (req, res) => {
                     }, {
                         headers: {
                             'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-                            'HTTP-Referer': 'http://localhost:3000', // Optional, for OpenRouter rankings
+                            'HTTP-Referer': 'https://find-medi.vercel.app/', // Optional, for OpenRouter rankings
                             'X-Title': 'Medicine Search App', // Optional
                             'Content-Type': 'application/json'
                         }

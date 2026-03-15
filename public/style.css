@@ -1,7 +1,24 @@
 @font-face {
-    font-family: 'DIN Round Pro';
-    src: url('fonts/dinroundpro.otf') format('opentype');
+    font-family: 'MPLUS Rounded 1c';
+    src: url('fonts/MPLUSRounded1c-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'MPLUS Rounded 1c';
+    src: url('fonts/MPLUSRounded1c-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MPLUS Rounded 1c';
+    src: url('fonts/MPLUSRounded1c-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 
 :root {
     --background: #FEF9EF;
@@ -23,7 +40,7 @@
 
 body {
     background-color: var(--background);
-    font-family: 'DIN Round Pro', sans-serif;
+    font-family: 'MPLUS Rounded 1c', sans-serif;
     color: var(--text-color);
     display: flex;
     justify-content: center;
@@ -228,7 +245,7 @@ h3 {
     padding: 18px 30px;
     border-radius: 12px;
     font-size: 20px;
-    font-family: 'DIN Round Pro', sans-serif;
+    font-family: 'MPLUS Rounded 1c', sans-serif;
     font-weight: 500;
     cursor: pointer;
     box-shadow: 0 6px 0 var(--button-shadow);
